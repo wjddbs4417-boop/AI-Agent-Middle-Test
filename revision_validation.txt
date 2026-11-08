@@ -1,0 +1,16 @@
+검증일: 2026-11-08
+대상: library_agent_revised/05_library_agent.py
+실행: python -m unittest discover -s outputs/library_agent_revised -p 'test_*.py' -v
+결과: Ran 13 tests in 0.012s / OK / 종료 코드 0
+
+기존 검사 8개 통과.
+추가 검사 5개 통과:
+1. 저장 거부 표현 11종에서 profile 생성 없음.
+2. 저장 거부 시 기존 선호 유지.
+3. 조회·기능 질문 및 단순 취향 언급에서 저장 없음.
+4. 명시적 저장 요청 3종에서 정상 저장·갱신.
+5. 긍정 요청과 취소가 함께 있으면 저장 없음.
+
+검사 방식: 모델이 저장 도구를 잘못 선택한 경우를 가정하여 도구 함수를 직접 호출하고 Store 내용을 확인.
+Ollama 모델을 호출하는 전체 대화 시나리오는 이번 보완에서 재실행하지 않음.
+test_results.txt, demo_results.json, scenario_validation.txt는 기존 버전의 과거 검증 기록이며 이번 결과는 이 파일을 참조.
